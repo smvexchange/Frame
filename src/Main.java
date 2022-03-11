@@ -1,18 +1,15 @@
-import javax.swing.JFrame;
-import java.awt.*;
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 class MyFrame extends JFrame {
     MyFrame() {
         setSize(400,300);
         setVisible(true);
-        addMouseMotionListener(new MouseAdapter() {
+        addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseDragged(MouseEvent e) {
-                setLocation(e.getXOnScreen() - getX(), e.getYOnScreen() - getY());
+            public void mouseClicked(MouseEvent e) {
+                setLocation(e.getXOnScreen() - getWidth()/2, e.getYOnScreen() - getHeight()/2);
             }
         });
     }
